@@ -1,0 +1,78 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin-ext';
+
+$bgColor:#22222b;
+$navColor:#edad61;
+$primaryColor:#2f2f3a;
+$fontColor:#a3acbe;
+$borderColor:#4d505c;
+$darkBorderColor:#40404a;
+
+h1,h2,h3,p,ul{
+    padding: 0;
+    margin: 0;
+}
+
+.widget{
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: $bgColor;
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 25px;
+        background-color: $navColor;
+        h1{
+            font-size: 36px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        button{
+            img{
+                max-height: 30px;
+            }
+        }
+    }
+    .radioList{
+        padding: 20px;
+        background-color: $primaryColor;
+        border-bottom: 1px solid $borderColor;
+        .radioItem{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            cursor: pointer;
+            &:not(:last-child){
+                border-bottom: 1px solid $darkBorderColor;
+            }
+            span{
+                font-size: 22px;
+                color: $fontColor;
+            }
+        }
+    }
+    .bottomHub{
+        padding: 15px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h2{
+            font-size: 28px;
+            color: $fontColor;
+        }
+        h3{
+            font-size: 13px;
+            color: $navColor;
+            text-transform: uppercase;
+        }
+    }
+}
+button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}

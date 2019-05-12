@@ -1,19 +1,19 @@
 import React from 'react';
-import backIcon from '../../imgs/back-arrow.png';
 import switchIcon from '../../imgs/switch.png';
+import Icons from '../Icons/Icons.js';
 
-const Nav = () =>{
+const Nav = (props) =>{
     return(
         <div className="nav">
             <div className="back">
-                <button>
-                    <img src={backIcon} alt=""/>
+                <button onClick={props.stop}>
+                    <img src={switchIcon} alt=""/>
                 </button>
             </div>
             <h1>Stations</h1>
             <div className="back">
-                <button>
-                    <img src={switchIcon} alt=""/>
+                <button className={props.rotate?'active':''} onClick={props.toggleModal}>
+                    <Icons />
                 </button>
             </div>
         </div>

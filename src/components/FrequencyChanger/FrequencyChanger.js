@@ -1,13 +1,15 @@
 import React from 'react';
-import plusIcon from '../../imgs/plus.png';
-import minusIcon from '../../imgs/minus.png';
+import Icons from '../Icons/Icons.js';
 
 const FrequencyChanger = (props) =>{
+    const imgBgStyle={
+        backgroundImage: 'url('+props.image+')'
+    }
     return(
         <div className="frequencyChanger">
-            <button></button>
-            {/* <span><img src="." alt=""/></span> */}
-            <button></button>
+            {/* <button><Icons type='minus'/></button> */}
+            <span style={imgBgStyle}></span>
+            {/* <button><Icons /></button> */}
         </div>
     )
 }

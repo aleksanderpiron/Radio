@@ -52,11 +52,15 @@ class App extends Component{
   }
   InputHandler=(event)=>{
     const addStationData = {...this.state.addStation};
-    if(event.target.type==='text'){
+    console.log(event.target.id)
+    if(event.target.id === 'freqInput'){
+      addStationData.stationFreq = parseFloat(event.target.value);
+    }
+    if(event.target.type==='text' && event.target.id !== 'freqInput'){
       addStationData.stationName = event.target.value;
     }
     if(event.target.type==='range'){
-      addStationData.stationFreq = parseInt(event.target.value);
+      addStationData.stationFreq = parseFloat(event.target.value);
     }
     this.setState({
       addStation:addStationData
@@ -65,9 +69,11 @@ class App extends Component{
   WheelHandler=(event)=>{
     const addStationData = {...this.state.addStation};
     if(event.deltaY<0){
+      console.log(typeof(addStationData.stationFreq))
       addStationData.stationFreq = addStationData.stationFreq + 0.1;
     }
     if(event.deltaY>0){
+      console.log(typeof(addStationData.stationFreq))
       addStationData.stationFreq = addStationData.stationFreq - 0.1;
     }
     if(addStationData.stationFreq>160){
@@ -77,6 +83,7 @@ class App extends Component{
       addStationData.stationFreq = 60;
     }
     addStationData.stationFreq = Math.round(addStationData.stationFreq * 10) / 10;
+    console.log(addStationData.stationFreq);
     this.setState({
       addStation:addStationData
     });

@@ -5,7 +5,7 @@ const BottomHub = (props) =>{
         <div className="bottomHub">
             <h3>Currently Playing</h3>
             <h2>{props.currentStation !== '---'?props.stationList[props.currentStation].name:'---'}</h2>
-            <button onClick={props.removeStation} className="btn">DELETE STATION</button>
+            <button onClick={props.removeStation} disabled={props.currentStation==='---'?true:false} className="btn">DELETE STATION</button>
         </div>
     )
 }

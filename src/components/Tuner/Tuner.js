@@ -3,8 +3,11 @@ import React from 'react';
 const Tuner=(props)=>{
     return(
         <div className="tuner">
-            <p className="choosenFrequency">{props.freqValue}</p>
-            <input onWheel={props.wheelHandler} onChange={props.rangeHandler} step='0.25'max={160} min={60} value={props.freqValue} type="range"/>
+            <p className="choosenFrequency">
+                <input type='text' id='freqInput' onChange={props.rangeHandler} value={props.freqValue} />
+            </p>
+            <input onWheel={props.wheelHandler} onChange={props.rangeHandler} max={160} min={60} value={props.freqValue} type="range"/>
+            <p className="small">Use scroll for more precision</p>
             <div className="ruler">
                 <div>
                     <span></span>
@@ -127,7 +130,6 @@ const Tuner=(props)=>{
                     <span></span>
                 </div>
             </div>
-            <p className="small">Use scroll for more precision</p>
         </div>
     )
 }

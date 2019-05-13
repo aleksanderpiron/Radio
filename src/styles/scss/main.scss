@@ -155,6 +155,7 @@ html{
                 display: block;
                 color: #fff;
                 input[type="text"]{
+                    appearance: none;
                     width: 90%;
                     display: block;
                     background-color: transparent;
@@ -171,7 +172,7 @@ html{
                     margin-bottom: 15px;
                 }
             }
-            
+
         }
         &.active{
             opacity: 1;
@@ -198,9 +199,10 @@ h1{
         padding-bottom: 15px;
     }
     input[type=range]{
+        height: 36px;
         position: absolute;
         left: -1px;
-        bottom: 25px;
+        bottom: 0;
         width: 100%;
         -webkit-appearance: none;
         background: transparent;
@@ -213,7 +215,7 @@ h1{
         &::-ms-track {
           width: 100%;
           cursor: pointer;
-          background: transparent; 
+          background: transparent;
           border-color: transparent;
         }
         &::-webkit-slider-thumb {
@@ -227,6 +229,7 @@ h1{
             height: 36px;
             width: 2px;
             border-radius: 3px;
+            border: none;
             background: #ec0000;
             cursor: pointer;
         }
@@ -247,35 +250,69 @@ h1{
             height: 30px;
             display: flex;
             align-items: flex-end;
-            border-right: 1px solid $borderColor; 
+            border-right: 1px solid $borderColor;
             &:first-child{
-                border-left: 1px solid $borderColor; 
+                border-left: 1px solid $borderColor;
              }
             span{
                 height: 15px;
                 width: 10%;
                 &:first-child{
-                    border-left: 1px solid $darkBorderColor; 
+                    border-left: 1px solid $darkBorderColor;
                  }
                 &:not(:last-child){
-                   border-right: 1px solid $darkBorderColor; 
+                   border-right: 1px solid $darkBorderColor;
                 }
             }
         }
     }
     .small{
         font-size: 12px;
-        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 .btn{
+    transition: opacity 1s;
     font-weight: 700;
     margin-top: 10px;
     border-radius: 8px;
     background-color: $navColor;
     padding: 10px 40px;
+    max-height: 100px;
     color: #fff;
+    opacity: 1;
     &:disabled{
+        opacity: 0;
+        margin-top: 0;
         background-color: #ccc;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+@media (max-width:1280px){
+    .widget{
+        margin: 20px 50px;
+    }
+}
+@media (max-width:900px){
+    .widget{
+        .addRadio{
+            border-radius: 20px;
+            top: 130px;
+            width: 90%;
+            right: 20px;
+            &.active{
+                right: 0;
+                left: 0;
+                margin: auto;
+                z-index: 3;
+            }
+        }
+    }
+}
+@media (max-width:480px){
+    .widget{
+        margin: 20px 10px;
     }
 }

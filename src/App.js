@@ -52,9 +52,10 @@ class App extends Component{
   }
   InputHandler=(event)=>{
     const addStationData = {...this.state.addStation};
-    console.log(event.target.id)
     if(event.target.id === 'freqInput'){
+      console.log(event.target.value);
       addStationData.stationFreq = parseFloat(event.target.value);
+      console.log(addStationData.stationFreq);
     }
     if(event.target.type==='text' && event.target.id !== 'freqInput'){
       addStationData.stationName = event.target.value;
@@ -69,11 +70,9 @@ class App extends Component{
   WheelHandler=(event)=>{
     const addStationData = {...this.state.addStation};
     if(event.deltaY<0){
-      console.log(typeof(addStationData.stationFreq))
       addStationData.stationFreq = addStationData.stationFreq + 0.1;
     }
     if(event.deltaY>0){
-      console.log(typeof(addStationData.stationFreq))
       addStationData.stationFreq = addStationData.stationFreq - 0.1;
     }
     if(addStationData.stationFreq>160){

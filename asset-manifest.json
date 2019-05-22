@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23f98d0f.chunk.css",
+    "main.js": "/static/js/main.d80ff16a.chunk.js",
+    "main.js.map": "/static/js/main.d80ff16a.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.aa3d1e0c.chunk.js": "/static/js/2.aa3d1e0c.chunk.js",
+    "static/js/2.aa3d1e0c.chunk.js.map": "/static/js/2.aa3d1e0c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e55f53f1228cc96d54ae549c4bf8d203.js": "/precache-manifest.e55f53f1228cc96d54ae549c4bf8d203.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.23f98d0f.chunk.css.map": "/static/css/main.23f98d0f.chunk.css.map",
+    "static/media/radioImg1.png": "/static/media/radioImg1.3d0ff30d.png",
+    "static/media/radioImg2.jpg": "/static/media/radioImg2.af003bf0.jpg",
+    "static/media/radioImg3.jpg": "/static/media/radioImg3.0c16267d.jpg",
+    "static/media/switch.png": "/static/media/switch.3a0c76ad.png"
+  }
+}

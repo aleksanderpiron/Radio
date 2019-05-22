@@ -19,27 +19,27 @@ class App extends Component{
     stations:{
       station1:{
         name:'Putin FM',
-        frequency: '66,6',
+        frequency: 66.6,
         radioImg:radioImage1
       },
       station2:{
         name:'Dribble FM',
-        frequency: '101,2',
+        frequency: 101.2,
         radioImg:radioImage2
       },
       station3:{
         name:'Doge FM',
-        frequency: '99,4',
+        frequency: 99.4,
         radioImg:radioImage3
       },
       station4:{
         name:'Ballads FM',
-        frequency: '87,1',
+        frequency: 76.2,
         radioImg:radioImage1
       },
       station5:{
         name:'Maximum FM',
-        frequency: '142,2',
+        frequency: 122.4,
         radioImg:radioImage2
       },
     }
@@ -52,16 +52,18 @@ class App extends Component{
   }
   InputHandler=(event)=>{
     const addStationData = {...this.state.addStation};
+    let val = event.target.value;
     if(event.target.id === 'freqInput'){
-      console.log(event.target.value);
-      addStationData.stationFreq = parseFloat(event.target.value);
+      addStationData.stationFreq = parseFloat(val);
+      console.log(val);
       console.log(addStationData.stationFreq);
+      console.log(typeof(addStationData.stationFreq));
     }
     if(event.target.type==='text' && event.target.id !== 'freqInput'){
-      addStationData.stationName = event.target.value;
+      addStationData.stationName = val;
     }
     if(event.target.type==='range'){
-      addStationData.stationFreq = parseFloat(event.target.value);
+      addStationData.stationFreq = parseFloat(val);
     }
     this.setState({
       addStation:addStationData
@@ -82,7 +84,6 @@ class App extends Component{
       addStationData.stationFreq = 60;
     }
     addStationData.stationFreq = Math.round(addStationData.stationFreq * 10) / 10;
-    console.log(addStationData.stationFreq);
     this.setState({
       addStation:addStationData
     });

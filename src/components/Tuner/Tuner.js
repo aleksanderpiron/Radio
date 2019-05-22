@@ -4,9 +4,9 @@ const Tuner=(props)=>{
     return(
         <div className="tuner">
             <p className="choosenFrequency">
-                <input type='text' id='freqInput' onChange={props.rangeHandler} value={props.freqValue} />
+                <input type='number' id='freqInput' onChange={props.rangeHandler} value={props.freqValue} />
             </p>
-            <input onWheel={props.wheelHandler} onChange={props.rangeHandler} max={160} min={60} value={props.freqValue} type="range"/>
+            <input onWheel={props.wheelHandler} onChange={props.rangeHandler} max={160} min={60} value={props.freqValue} type="range" step={0.1}/>
             <p className="small">Use scroll for more precision</p>
             <div className="ruler">
                 <div>

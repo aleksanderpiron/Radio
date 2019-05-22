@@ -7,9 +7,7 @@ const FrequencyChanger = (props) =>{
     }
     return(
         <div className="frequencyChanger">
-            {/* <button><Icons type='minus'/></button> */}
             <span style={imgBgStyle}></span>
-            {/* <button><Icons /></button> */}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import './styles/css/main.css';
 import Nav from './components/Nav/Nav';
 import AddRadio from './components/AddRadio/AddRadio';
@@ -7,6 +7,7 @@ import RadioList from './components/RadioList/RadioList';
 import radioImage1 from './imgs/radioImg1.png';
 import radioImage2 from './imgs/radioImg2.jpg';
 import radioImage3 from './imgs/radioImg3.jpg';
+import { create } from 'istanbul-reports';
 
 class App extends Component{
   state={
@@ -44,6 +45,7 @@ class App extends Component{
       },
     }
   }
+  nameInput = createRef();
   idCounter = Object.keys(this.state.stations).length;
   ChangeStationHandler=(target)=>{
     this.setState({
@@ -54,10 +56,9 @@ class App extends Component{
     const addStationData = {...this.state.addStation};
     let val = event.target.value;
     if(event.target.id === 'freqInput'){
-      addStationData.stationFreq = parseFloat(val);
-      console.log(val);
-      console.log(addStationData.stationFreq);
-      console.log(typeof(addStationData.stationFreq));
+      if(!isNaN(parseFloat(val))){
+        addStationData.stationFreq = parseFloat(val);
+      }
     }
     if(event.target.type==='text' && event.target.id !== 'freqInput'){
       addStationData.stationName = val;
@@ -104,20 +105,26 @@ class App extends Component{
     const newState = this.state;
     const newId = this.idCounter + 1;
     this.idCounter++;
-    newState.stations = {
-      ...newState.stations,
-      ['station'+newId]:{
-        name: this.state.addStation.stationName,
-        frequency: this.state.addStation.stationFreq,
-        radioImg:radioImage1
+    if(this.state.addStation.stationName === ''){
+      this.nameInput.current.placeholder = 'Enter the name of station!';
+      console.log(this.nameInput);
+    }else{
+      this.nameInput.current.placeholder = '';
+      newState.stations = {
+        ...newState.stations,
+        ['station'+newId]:{
+          name: this.state.addStation.stationName,
+          frequency: this.state.addStation.stationFreq,
+          radioImg:radioImage1
+        }
+      };
+      newState.addStation = {
+        modal:true,
+        stationName:'',
+        stationFreq:90.5
       }
-    };
-    newState.addStation = {
-      modal:true,
-      stationName:'',
-      stationFreq:90.5
+      this.setState(newState)
     }
-    this.setState(newState)
   }
   DeleteStationHandler=()=>{
     const target = this.state.currentStation;
@@ -136,11 +143,11 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        <div ref={this.refe} className="widget">
+        <div className="widget">
           <Nav stop={this.StopPlaying} rotate={this.state.addStation.modal} toggleModal={this.ToggleAddRadioModal}/>
-          <RadioList refTest={this.refe} currentStation={this.state.currentStation} changeStation={this.ChangeStationHandler} stationList={this.state.stations}/>
+          <RadioList currentStation={this.state.currentStation} changeStation={this.ChangeStationHandler} stationList={this.state.stations}/>
           <BottomHub removeStation={this.DeleteStationHandler} stationList={this.state.stations} currentStation={this.state.currentStation}/>
-          <AddRadio addHandler={this.AddStationHandler} wheelHandler={this.WheelHandler} inputHandler={this.InputHandler} value={this.state.addStation} active={this.state.addStation.modal}/>
+          <AddRadio nameInputRef={this.nameInput} addHandler={this.AddStationHandler} wheelHandler={this.WheelHandler} inputHandler={this.InputHandler} value={this.state.addStation} active={this.state.addStation.modal}/>
         </div>
       </div>
     );

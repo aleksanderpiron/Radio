@@ -10,7 +10,7 @@ const AddRadio =(props)=>{
             <div className="body">
                 <label>
                     <span>Station name:</span>
-                    <input onChange={props.inputHandler} value={props.value.stationName} type="text"/>
+                    <input ref={props.nameInputRef} onChange={props.inputHandler} value={props.value.stationName} type="text"/>
                 </label>
                 <label>
                     <span>Station frequency:</span>

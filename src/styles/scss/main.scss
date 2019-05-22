@@ -154,8 +154,8 @@ html{
             label{
                 display: block;
                 color: #fff;
-                input[type="text"]{
-                    appearance: none;
+                input[type="text"], input[type="number"]{
+                    appearance: textfield;
                     width: 90%;
                     display: block;
                     background-color: transparent;
@@ -167,6 +167,14 @@ html{
                     text-align: center;
                     font-weight: 700;
                     font-size: 18px;
+                    &::-webkit-inner-spin-button, 
+                    &::-webkit-outer-spin-button { 
+                      -webkit-appearance: none; 
+                      margin: 0; 
+                    }
+                    &::placeholder{
+                        color:#c72323;
+                    }
                 }
                 &:first-child{
                     margin-bottom: 15px;
